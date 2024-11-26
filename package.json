@@ -1,8 +1,7 @@
 {
   "name": "my-react-app",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "/portal/app/",
+  "private": true,  
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

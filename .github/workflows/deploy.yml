@@ -71,7 +71,7 @@ jobs:
       - name: Deploy S3 Bucket
         env:
           BUCKET_NAME: portal-web-taller
-          APP_NAME: portal/app
+          APP_NAME: portal
           AWS_REGION: us-east-1
           BUILD_FOLDER: build
         run: |
