@@ -17,15 +17,14 @@ jobs:
       - name: Restore cache
         id: restore-cache
         uses: actions/cache@v3
-        env:
-          cache-name: node-modules-dev
         with:
           path: node_modules
-          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: npm-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-node-modules-
       - name: Install Dependencies
         if: steps.restore-cache.outputs.cache-hit != 'true'
-        run: |
-          npm ci
+        run: npm ci
       - name: Run Build
         run: npm run build
       - name: Persist Build
@@ -53,15 +52,14 @@ jobs:
       - name: Restore Cache
         uses: actions/cache@v3
         id: restore-cache
-        env:
-          cache-name: node-modules-prod
         with:
           path: node_modules
-          key: npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: npm-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-node-modules-
       - name: Install Dependencies
         if: steps.restore-cache.outputs.cache-hit != 'true'
-        run: |
-          npm ci --only=prod
+        run: npm ci --only=prod
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -80,6 +78,6 @@ jobs:
           aws s3 sync s3://$BUCKET_NAME/$APP_NAME/release/$RELEASE_NAME s3://$BUCKET_NAME/$APP_NAME/app --delete --region us-east-1 || exit 1
       - name: Cache Invalidation
         env:
-          DISTRIBUTION_ID: E1T4VQUEQ16OTU 
+          DISTRIBUTION_ID: E1T4VQUEQ16OTU
         run: |
           aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
