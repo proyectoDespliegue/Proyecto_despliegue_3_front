@@ -1,23 +1,128 @@
+/* Asegúrate de que el body y el html ocupen todo el espacio disponible */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(76, 175, 80); /* Color de fondo */
+}
+
+/* Asegúrate de que el contenedor principal ocupe todo el espacio disponible */
 .App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: rgb(76, 175, 80); /* Color de fondo */
+}
+
+.App-header {
+  background-color: rgb(76, 175, 80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 180px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-right {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+}
+
+.header-text {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.App-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 200px auto 0; /* Ajusta el margen superior para que no se superponga con el header */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Main-image {
+  width: 70%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.main-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30%;
+}
+
+.main-text {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.main-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4a5e4b;
+  color: white;
+  cursor: pointer;
+}
+
+.main-form button:hover {
+  background-color: #45a049;
+}
